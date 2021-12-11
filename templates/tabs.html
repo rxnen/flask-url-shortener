@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tabs</title>
+    <script>
+      function openLinks(origin) {
+        var link_list = {{ link_list }};
+        document.getElementById("linklistdis").innerHTML = "{{ link_list }}"
+        if ("{{ auto }}" == "yes" || origin == 'button') {
+          if (origin == 'onload') {
+            ask = confirm("Are you sure would would like to open up " + link_list.length + " tabs?")
+            if (ask == true) {
+            } else {
+              return
+            }
+          }
+          for (var i = 0; i < link_list.length; i++) {
+            popUp = window.open(link_list[i]);
+            if (popUp == null || typeof(popUp)=='undefined') {  
+              alert('We are unable to automatically open all of your links due to popup blockers. Please disable them for this site or use the list of links below instead.'); 
+              return;
+            } 
+          }
+        }
+      }
+    </script> 
+  </head>
+  <body onload="openLinks('onload')">
+    <h2>Opening tabs...</h2>
+    <h4>Links Included:</h4>
+    <ul>
+    {% for link in link_list %}
+      <li class="links"><a href="{{ link }}">{{ link }}</a></li>
+    {% endfor %}
+    </ul>
+    <button id="linkbutton" onclick="openLinks('button')">Open Links</button>
+    <br>
+    <br>
+    <button id="reportButton" onclick="report()">Report Tab Group</button>
+    <br>
+    <br>
+    <p id="linklistdis"></p>
+  </body>
+</html>

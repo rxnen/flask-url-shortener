@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tabs</title>
+    <style>
+      textarea {
+        width: 50%;
+        height: 200px;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body onload="openLinks()">
+    <h1>LinksFor.me</h1>
+    <p><strong>Directions:</strong><br>Enter a list of URLs below separated by commas. Then use the dropdown to choose whether or not you'd like the tabs to automatically open when the link loads. This means that, unless blocked by popup blockers, the tabs will automatically open for anyone who clicks on the link.<br><br><strong>Note:</strong><br>Any tab links that are made with over <strong>four</strong> URLs will automatically be set to not open links automatically to prevent tab bombing.</p>
+    <form method="POST">
+      <label for="auto">Open Links Automatically?</label>
+      <select name="auto" id="auto">
+        <option value="yes" selected>Yes</option>
+        <option value="no">No</option>
+      </select>
+      <br>
+      <br>
+      <textarea type="text" name="text" placehoder="Enter links separated by commas" required></textarea>
+      <br>
+      <br>
+      <input type="submit">
+  </body>
+</html>
