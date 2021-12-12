@@ -37,8 +37,7 @@ def my_form_post():
 @app.route("/<_id>")
 def tabs(_id):
   try:
-    link_list = db[_id]["urls"].split(",");
-    return render_template("tabs.html", links=str(db[_id]["urls"]), auto=str(db[_id]["auto"]), link_list = link_list)
+    return render_template("tabs.html", links=str(db[_id]["urls"]), auto=str(db[_id]["auto"]))
   except:
     return("Failed to load data")
   else:

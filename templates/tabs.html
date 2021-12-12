@@ -4,7 +4,7 @@
     <title>Tabs</title>
     <script>
       function openLinks(origin) {
-        var link_list = {{ link_list }};
+        var link_list = "{{ links }}".split(",");
         document.getElementById("linklistdis").innerHTML = "{{ link_list }}"
         if ("{{ auto }}" == "yes" || origin == 'button') {
           if (origin == 'onload') {
